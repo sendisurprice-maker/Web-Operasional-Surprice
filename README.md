@@ -679,6 +679,12 @@
                   </li>
                 </ul>
               </li>
+               <a href="https://docs.google.com/spreadsheets/d/1rRnAGQWbnhlYo3OFHZwch6zWZx74oeDrhWyMg_os_18/edit?gid=1158692194#gid=1158692194" target="_blank">
+                      📊 Laporan Barang Defect 2025
+                    </a>
+                  </li>
+                </ul>
+              </li>
               <li><a href="#" onclick="showSection('kebersihan')">🧹 • Laporan Kebersihan</a></li>
               <li><a href="#" onclick="showSection('defect')">⚠️ • Status Defect Barang</a></li>
             </ul>
@@ -691,6 +697,10 @@
                  </ul>
              <li><a href="#" onclick="showSection('divisi-marketing')">📈 Divisi Marketing & Sales Digital</a></li>
           <li><a href="#" onclick="showSection('divisi-admin')">⚙️ Divisi Admin & Purchasing</a></li>
+            <a href="https://docs.google.com/spreadsheets/d/1ykt2z6HEhI3XAAezp3PYgMp9nHr4AxSfsOB5il_I8nU/edit?gid=0#gid=0" target="_blank">
+                      📊 Laporan Tiktok dan Selisih Ongkir 2025
+                    </a>
+                 </ul>
           <li><a href="#" onclick="showSection('divisi-transporter')">🚚 Divisi Transporter</a></li>
           <li><a href="#" onclick="showSection('divisi-kurir')">📬 Divisi Kurir</a></li>
           <li><a href="#" onclick="showSection('divisi-finance')">💰 Divisi Finance</a></li>
