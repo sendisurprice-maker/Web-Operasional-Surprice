@@ -671,23 +671,15 @@
                     <a href="https://docs.google.com/spreadsheets/d/14phSwmbLXDSVpc1wBo9NZdz9yV1VIOutwBySSQNewJ8/edit" target="_blank">
                       📋 V.2 Log Aktivitas Operasional
                     </a>
-                  </li>
-                  <li>
                     <a href="https://docs.google.com/spreadsheets/d/1XET5ZuVH10Yt4dhVxioCe1jww5-cWfjC/edit?gid=2037484461#gid=2037484461" target="_blank">
                       📊 Laporan Operasional Surprice2025
                     </a>
-                  </li>
-                </ul>
-              </li>
-               <a href="https://docs.google.com/spreadsheets/d/1rRnAGQWbnhlYo3OFHZwch6zWZx74oeDrhWyMg_os_18/edit?gid=1158692194#gid=1158692194" target="_blank">
-                      📊 Laporan Barang Defect 2025
+                  <a href="https://docs.google.com/spreadsheets/d/1rRnAGQWbnhlYo3OFHZwch6zWZx74oeDrhWyMg_os_18/edit?gid=1158692194#gid=1158692194" target="_blank">
+                📊 Laporan Barang Defect 2025
                     </a>
                   </li>
-                </ul>
-              </li>
-              <li><a href="#" onclick="showSection('kebersihan')">🧹 • Laporan Kebersihan</a></li>
+               <li><a href="#" onclick="showSection('kebersihan')">🧹 • Laporan Kebersihan</a></li>
               <li><a href="#" onclick="showSection('defect')">⚠️ • Status Defect Barang</a></li>
-            </ul>
           </li>
 
           <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a></li>
