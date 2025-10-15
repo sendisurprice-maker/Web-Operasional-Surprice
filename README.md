@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sistem Inventory Booth - Dilwali</title>
+  <title>Sistem Inventory Surprice</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
@@ -530,6 +530,95 @@
       .stats-grid {
         grid-template-columns: 1fr;
       }
+      
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .partner-logos {
+        justify-content: center;
+      }
+    }
+
+    /* Footer Styles */
+    .main-footer {
+      background: #fff;
+      padding: 40px 30px 20px;
+      margin-top: 50px;
+      border-top: 3px solid #FF6B00;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .partner-section {
+      margin-bottom: 35px;
+    }
+    
+    .partner-section h3 {
+      color: #FF6B00;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .partner-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .partner-logo {
+      background: #f9f9f9;
+      padding: 15px 20px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      border: 2px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      height: 60px;
+    }
+    
+    .partner-logo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(255, 107, 0, 0.15);
+      border-color: #FF6B00;
+    }
+    
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 40px;
+      object-fit: contain;
+    }
+    
+    .divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, #FF6B00, transparent);
+      margin: 30px 0;
+    }
+    
+    .copyright {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .copyright strong {
+      color: #FF6B00;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -558,7 +647,7 @@
     <!-- Sidebar -->
     <nav class="sidebar">
       <div class="sidebar-header">
-        <h2>📦 DILWALI WMS</h2>
+        <h2>📦 SURPRICE WMS</h2>
         <p>Warehouse Management System</p>
       </div>
       
@@ -596,11 +685,12 @@
           </li>
 
           <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a></li>
-          <li><a href="#">📈 Divisi Marketing & Sales Digital</a></li>
-          <li><a href="#">⚙️ Divisi Admin & Purchasing</a></li>
-          <li><a href="#">🚚 Divisi Transporter</a></li>
-          <li><a href="#">📬 Divisi Kurir</a></li>
-          <li><a href="#">💻 Divisi IT</a></li>
+          <li><a href="#" onclick="showSection('divisi-marketing')">📈 Divisi Marketing & Sales Digital</a></li>
+          <li><a href="#" onclick="showSection('divisi-admin')">⚙️ Divisi Admin & Purchasing</a></li>
+          <li><a href="#" onclick="showSection('divisi-transporter')">🚚 Divisi Transporter</a></li>
+          <li><a href="#" onclick="showSection('divisi-kurir')">📬 Divisi Kurir</a></li>
+          <li><a href="#" onclick="showSection('divisi-finance')">💰 Divisi Finance</a></li>
+          <li><a href="#" onclick="showSection('divisi-hrd')">👔 Divisi HRD</a></li>
         </ul>
       </div>
 
@@ -649,7 +739,7 @@
           </div>
           
           <div class="config-section">
-            <h3>🎯 Selamat Datang di Sistem WMS Dilwali</h3>
+            <h3>🎯 Selamat Datang di Sistem WMS Surprice</h3>
             <p style="line-height: 1.8; color: #666;">
               Sistem Warehouse Management System (WMS) yang terintegrasi untuk mengelola inventory, 
               laporan operasional, kebersihan gudang, dan status defect barang secara real-time. 
@@ -789,12 +879,161 @@
         <div id="customerServiceSection" class="section-content">
           <div class="config-section">
             <h3>👥 Divisi Customer Service</h3>
-            <p style="color: #666;">Fitur Customer Service akan segera tersedia...</p>
+            <div class="config-input">
+              <label>URL Google Sheets - Customer Service:</label>
+              <input id="apiUrlCS" type="text" placeholder="Masukkan URL Google Sheets untuk Customer Service">
+            </div>
+            <button class="btn-primary" onclick="saveSheetUrl('CS')">💾 Simpan URL</button>
+            <button class="btn-success" onclick="openSheet('CS')">🔗 Buka Google Sheets</button>
+          </div>
+        </div>
+
+        <!-- Marketing Section -->
+        <div id="divisiMarketingSection" class="section-content">
+          <div class="config-section">
+            <h3>📈 Divisi Marketing & Sales Digital</h3>
+            <div class="config-input">
+              <label>URL Google Sheets - Marketing:</label>
+              <input id="apiUrlMarketing" type="text" placeholder="Masukkan URL Google Sheets untuk Marketing">
+            </div>
+            <button class="btn-primary" onclick="saveSheetUrl('Marketing')">💾 Simpan URL</button>
+            <button class="btn-success" onclick="openSheet('Marketing')">🔗 Buka Google Sheets</button>
+          </div>
+        </div>
+
+        <!-- Admin & Purchasing Section -->
+        <div id="divisiAdminSection" class="section-content">
+          <div class="config-section">
+            <h3>⚙️ Divisi Admin & Purchasing</h3>
+            <div class="config-input">
+              <label>URL Google Sheets - Admin & Purchasing:</label>
+              <input id="apiUrlAdmin" type="text" placeholder="Masukkan URL Google Sheets untuk Admin & Purchasing">
+            </div>
+            <button class="btn-primary" onclick="saveSheetUrl('Admin')">💾 Simpan URL</button>
+            <button class="btn-success" onclick="openSheet('Admin')">🔗 Buka Google Sheets</button>
+          </div>
+        </div>
+
+        <!-- Transporter Section -->
+        <div id="divisiTransporterSection" class="section-content">
+          <div class="config-section">
+            <h3>🚚 Divisi Transporter</h3>
+            <div class="config-input">
+              <label>URL Google Sheets - Transporter:</label>
+              <input id="apiUrlTransporter" type="text" placeholder="Masukkan URL Google Sheets untuk Transporter">
+            </div>
+            <button class="btn-primary" onclick="saveSheetUrl('Transporter')">💾 Simpan URL</button>
+            <button class="btn-success" onclick="openSheet('Transporter')">🔗 Buka Google Sheets</button>
+          </div>
+        </div>
+
+        <!-- Kurir Section -->
+        <div id="divisiKurirSection" class="section-content">
+          <div class="config-section">
+            <h3>📬 Divisi Kurir</h3>
+            <div class="config-input">
+              <label>URL Google Sheets - Kurir:</label>
+              <input id="apiUrlKurir" type="text" placeholder="Masukkan URL Google Sheets untuk Kurir">
+            </div>
+            <button class="btn-primary" onclick="saveSheetUrl('Kurir')">💾 Simpan URL</button>
+            <button class="btn-success" onclick="openSheet('Kurir')">🔗 Buka Google Sheets</button>
+          </div>
+        </div>
+
+        <!-- Finance Section -->
+        <div id="divisiFinanceSection" class="section-content">
+          <div class="config-section">
+            <h3>💰 Divisi Finance</h3>
+            <div class="config-input">
+              <label>URL Google Sheets - Finance:</label>
+              <input id="apiUrlFinance" type="text" placeholder="Masukkan URL Google Sheets untuk Finance">
+            </div>
+            <button class="btn-primary" onclick="saveSheetUrl('Finance')">💾 Simpan URL</button>
+            <button class="btn-success" onclick="openSheet('Finance')">🔗 Buka Google Sheets</button>
+          </div>
+        </div>
+
+        <!-- HRD Section -->
+        <div id="divisiHrdSection" class="section-content">
+          <div class="config-section">
+            <h3>👔 Divisi HRD</h3>
+            <div class="config-input">
+              <label>URL Google Sheets - HRD:</label>
+              <input id="apiUrlHRD" type="text" placeholder="Masukkan URL Google Sheets untuk HRD">
+            </div>
+            <button class="btn-primary" onclick="saveSheetUrl('HRD')">💾 Simpan URL</button>
+            <button class="btn-success" onclick="openSheet('HRD')">🔗 Buka Google Sheets</button>
           </div>
         </div>
 
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <!-- Marketplace Partners -->
+        <div class="partner-section">
+          <h3>🛒 Toko Kami Tersedia Di</h3>
+          <div class="partner-logos">
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" alt="Shopee">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lazada_Logo.png" alt="Lazada">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Tokopedia_logo.svg" alt="Tokopedia">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Blibli_2021_logo.svg" alt="Blibli">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Bukalapak_logo.svg" alt="Bukalapak">
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Courier Partners -->
+        <div class="partner-section">
+          <h3>🚚 Partner Kurir Kami</h3>
+          <div class="partner-logos">
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/New_Logo_JNT.png" alt="J&T Express">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/JNE_logo.svg" alt="JNE">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/id/e/e7/SiCepat_Ekspres_logo.png" alt="SiCepat">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Grab_Logo.svg" alt="Grab">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Gojek_logo_2019.svg" alt="Gojek">
+            </div>
+            <div class="partner-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Ninja_Xpress_logo.png" alt="Ninja Xpress">
+            </div>
+            <div class="partner-logo">
+              <img src="https://yt3.googleusercontent.com/ytc/AIdro_ltJ5JXdQPBBXvJFiuuJWPQb9Gp8wIoq0bKoHPf=s900-c-k-c0x00ffffff-no-rj" alt="ID Express">
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright">
+          <p>© 2025 <strong>SURPRICE WMS</strong> - Warehouse Management System</p>
+          <p style="margin-top: 8px;">Developed by <strong>Copyright@sendi_muchdianto</strong></p>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script>
@@ -894,6 +1133,30 @@
           sectionId = 'customerServiceSection';
           pageTitle = 'Divisi Customer Service';
           break;
+        case 'divisi-marketing':
+          sectionId = 'divisiMarketingSection';
+          pageTitle = 'Divisi Marketing & Sales Digital';
+          break;
+        case 'divisi-admin':
+          sectionId = 'divisiAdminSection';
+          pageTitle = 'Divisi Admin & Purchasing';
+          break;
+        case 'divisi-transporter':
+          sectionId = 'divisiTransporterSection';
+          pageTitle = 'Divisi Transporter';
+          break;
+        case 'divisi-kurir':
+          sectionId = 'divisiKurirSection';
+          pageTitle = 'Divisi Kurir';
+          break;
+        case 'divisi-finance':
+          sectionId = 'divisiFinanceSection';
+          pageTitle = 'Divisi Finance';
+          break;
+        case 'divisi-hrd':
+          sectionId = 'divisiHrdSection';
+          pageTitle = 'Divisi HRD';
+          break;
         default:
           sectionId = 'dashboardSection';
           pageTitle = 'Dashboard Utama';
@@ -958,6 +1221,31 @@
         alert('✅ Konfigurasi berhasil disimpan!');
       } else {
         alert('❌ Harap masukkan URL Google Apps Script!');
+      }
+    }
+
+    // Save Sheet URL for each division
+    function saveSheetUrl(division) {
+      const inputId = 'apiUrl' + division;
+      const url = document.getElementById(inputId).value;
+      
+      if (url) {
+        // Save to memory (in real app, save to localStorage or database)
+        alert(`✅ URL Google Sheets untuk Divisi ${division} berhasil disimpan!`);
+      } else {
+        alert(`❌ Harap masukkan URL Google Sheets untuk Divisi ${division}!`);
+      }
+    }
+
+    // Open Sheet URL for each division
+    function openSheet(division) {
+      const inputId = 'apiUrl' + division;
+      const url = document.getElementById(inputId).value;
+      
+      if (url) {
+        window.open(url, '_blank');
+      } else {
+        alert(`❌ Belum ada URL Google Sheets untuk Divisi ${division}!`);
       }
     }
 
