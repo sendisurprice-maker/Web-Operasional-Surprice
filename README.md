@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sistem Task Management Tracker Operasional Surprice</title>
+  <title>Sistem Inventory Booth - Dilwali</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
@@ -539,7 +539,7 @@
   <div id="loginPage" class="login-page">
     <div class="login-box">
       <h2>🔐 Login Sistem Inventory</h2>
-      <p>Username:admin | Password:admin1234</p>
+      <p>Username: admin | Password: admin1234</p>
       <div class="form-group">
         <label>Username:</label>
         <input id="username" type="text" placeholder="Masukkan username" autocomplete="username">
@@ -558,7 +558,7 @@
     <!-- Sidebar -->
     <nav class="sidebar">
       <div class="sidebar-header">
-        <h2>📦 Tracker Management System</h2>
+        <h2>📦 DILWALI WMS</h2>
         <p>Warehouse Management System</p>
       </div>
       
@@ -596,12 +596,11 @@
           </li>
 
           <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a></li>
-          <li><a href="#" onclick="showsection('Divisi-Marketing')">📈 Divisi Marketing & Sales Digital</a></li>
-          <li><a href="#" onclick="showSection('Divsisi-Admin')">⚙️ Divisi Admin & Purchasing</a></li>
-          <li><a href="#" onclick="showSection('Divisi-Transporter')">🚚 Divisi Transporter</a></li>
-          <li><a href="#" onclick="showSection('Divisi-Kurir')">📬 Divisi Kurir</a></li>
-          <li><a href="#" onclick="showSection('Divisi-Finance')">💻 Divisi Finance</a></li>
-          <li><a href="#" onclick="showSection('Divisi-HRD')">💻 Divisi HRD</a></li>
+          <li><a href="#">📈 Divisi Marketing & Sales Digital</a></li>
+          <li><a href="#">⚙️ Divisi Admin & Purchasing</a></li>
+          <li><a href="#">🚚 Divisi Transporter</a></li>
+          <li><a href="#">📬 Divisi Kurir</a></li>
+          <li><a href="#">💻 Divisi IT</a></li>
         </ul>
       </div>
 
@@ -913,22 +912,22 @@
       document.getElementById('totalInventory').textContent = '830';
       document.getElementById('defectJual').textContent = '644';
       document.getElementById('defectPerbaikan').textContent = '186';
-      document.getElementById('defectHancur').textContent = '';
+      document.getElementById('defectHancur').textContent = '0';
     }
 
     // UPDATE DEFECT STATS
     function updateDefectStats() {
       document.getElementById('defectJualDetail').textContent = '644';
       document.getElementById('defectPerbaikanDetail').textContent = '186';
-      document.getElementById('defectHancurDetail').textContent = '';
+      document.getElementById('defectHancurDetail').textContent = '0';
       
       // Sample defect data
       const defectData = [
         { kode: 'BRG001', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: 644, keterangan: 'Goresan ringan', tanggal: '15 Okt 2025' },
         { kode: 'BRG002', nama: 'Booth Type B', kategori: 'Perbaikan', jumlah: 186, keterangan: 'Engsel rusak', tanggal: '15 Okt 2025' },
-        { kode: 'BRG003', nama: 'Booth Type C', kategori: 'Hancur', jumlah: , keterangan: 'Tidak dapat diperbaiki', tanggal: '15 Okt 2025' },
-        { kode: 'BRG004', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: , keterangan: 'Cat mengelupas', tanggal: '15 Okt 2025' },
-        { kode: 'BRG005', nama: 'Booth Type D', kategori: 'Perbaikan', jumlah: , keterangan: 'Roda macet', tanggal: '15 Okt 2025' },
+        { kode: 'BRG003', nama: 'Booth Type C', kategori: 'Hancur', jumlah: 0, keterangan: 'Tidak dapat diperbaiki', tanggal: '15 Okt 2025' },
+        { kode: 'BRG004', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: 0, keterangan: 'Cat mengelupas', tanggal: '15 Okt 2025' },
+        { kode: 'BRG005', nama: 'Booth Type D', kategori: 'Perbaikan', jumlah: 0, keterangan: 'Roda macet', tanggal: '15 Okt 2025' },
       ];
       
       const tbody = document.getElementById('defectTableBody');
