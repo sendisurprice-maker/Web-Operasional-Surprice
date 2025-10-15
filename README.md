@@ -1,5 +1,3 @@
-[kantor_pos_inventory (1).html](https://github.com/user-attachments/files/22918650/kantor_pos_inventory.1.html)
-<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="utf-8">
