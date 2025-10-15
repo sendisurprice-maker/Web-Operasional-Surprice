@@ -1,381 +1,186 @@
-<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dashboard Operasional Surprice 2025</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sistem Inventory Booth - Dilwali</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
   <style>
-    /* Reset & base */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html,body { height: 100%; }
-    body {
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: #f3f7fb;
-      color: #063259; /* teks gelap biru */
-      display: flex;
-      min-height: 100vh;
-    }
-
-    /* ---------- SIDEBAR ---------- */
-    nav.sidebar {
-      width: 280px;
-      background: linear-gradient(180deg,#053a78 0%, #0a4b9b 100%); /* kantor pos style */
-      color: #ffffff;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      box-shadow: 4px 0 18px rgba(3,37,76,0.12);
-    }
-
-    .brand {
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .brand img {
-      width:56px;
-      height:56px;
-      border-radius:8px;
-      background:#fff;
-      padding:6px;
-      object-fit:contain;
-    }
-    .brand .title {
-      font-weight:700;
-      font-size:16px;
-      color:#fff;
-      line-height:1;
-    }
-    .brand .subtitle {
-      font-size:12px;
-      color:rgba(255,255,255,0.85);
-    }
-
-    .nav-section { flex:1; overflow:auto; padding-right:6px; }
-    .menu { list-style:none; margin-top:8px; }
-    .menu > li { margin-bottom:6px; }
-    .menu a {
-      display:flex;
-      align-items:center;
-      gap:10px;
-      text-decoration:none;
-      color:rgba(255,255,255,0.95);
-      padding:10px 12px;
-      border-radius:8px;
-      transition: background .16s, transform .12s;
-      font-weight:600;
-    }
-    .menu a:hover { background: rgba(255,255,255,0.06); transform:translateX(2px); }
-    .menu .sub {
-      margin-top:6px;
-      margin-left:12px;
-      list-style:none;
-      display:none;
-    }
-    .menu .sub li a {
-      padding:8px 12px; font-weight:500; font-size:13px;
-    }
-    .menu .open > a { background: rgba(255,255,255,0.08); }
-    .menu .open .sub { display:block; }
-
-    /* small helper */
-    .muted { color: rgba(255,255,255,0.8); font-weight:500; font-size:13px; }
-
-    /* ---------- MAIN ---------- */
-    .main {
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
-    }
-
-    header.topbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e6eef8;
-      padding: 14px 22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .page-title {
-      display:flex; flex-direction:column;
-    }
-    .page-title h1 { font-size:18px; color:#052a4a; margin-bottom:4px; }
-    .page-title p { color:#375b7a; font-size:13px; margin:0; }
-
-    .datetime-box {
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-      gap:4px;
-      font-weight:700;
-      color:#052a4a;
-    }
-    .datetime-box .day { font-size:14px; color:#0b3a67; }
-    .datetime-box .date { font-size:13px; color:#1f5a86; font-weight:600; }
-    .datetime-box .time { font-size:20px; color:#052a4a; font-weight:800; }
-
-    /* ---------- CONTENT ---------- */
-    .content {
-      padding: 24px;
-      background: linear-gradient(180deg,#f7fbff 0%, #f3f7fb 100%);
-      flex:1;
-      overflow:auto;
-    }
-
-    .card-row {
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:16px;
-      margin-bottom:18px;
-    }
-    .card {
-      background:#fff;
-      border-radius:10px;
-      padding:16px;
-      box-shadow: 0 6px 16px rgba(7,28,56,0.06);
-      border-left: 4px solid #0b63b6;
-    }
-    .card h3 { font-size:13px; color:#16384f; margin-bottom:8px; font-weight:800; }
-    .card .value { font-size:20px; color:#052a4a; font-weight:900; }
-
-    .panel {
-      background:#fff;
-      border-radius:10px;
-      padding:16px;
-      box-shadow: 0 6px 16px rgba(7,28,56,0.06);
-    }
-
-    table {
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px;
-    }
-    th, td {
-      padding:10px 12px;
-      text-align:left;
-      border-bottom:1px solid #eef6ff;
-      color:#08304f;
-      font-size:13px;
-    }
-    th { background:#f4fbff; font-weight:800; color:#0c3a5a; }
-
-    /* responsive */
-    @media (max-width:1000px) {
-      .card-row { grid-template-columns: repeat(2, 1fr); }
-      nav.sidebar { width: 230px; }
-      .datetime-box { align-items:flex-start; }
-    }
-    @media (max-width:600px) {
-      body { flex-direction:column; }
-      nav.sidebar { width:100%; flex-direction:row; gap:12px; padding:12px; }
-      nav.sidebar .nav-section { display:none; }
-      .main { margin-top:12px; }
-      .card-row { grid-template-columns: 1fr; }
-    }
+    body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);margin:0;padding:0;color:#333;}
+    .container{max-width:1400px;margin:0 auto;background:#fff;overflow:hidden;box-shadow:0 0 50px rgba(0,0,0,0.2);display:flex;min-height:100vh;}
+    .login-page{display:flex;align-items:center;justify-content:center;width:100%;height:100vh;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
+    .login-box{background:#fff;padding:40px;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.18);width:100%;max-width:400px;text-align:center;}
+    .login-box h2{margin:0 0 20px;color:#667eea;font-size:28px;}
+    .form-group{margin-bottom:20px;text-align:left;}
+    .form-group label{display:block;margin-bottom:5px;font-weight:600;color:#555;}
+    input[type="text"],input[type="password"]{width:100%;padding:12px;border:2px solid #ddd;border-radius:8px;font-size:16px;transition:border-color 0.3s;}
+    input[type="text"]:focus,input[type="password"]:focus{outline:none;border-color:#667eea;}
+    .btn-login{width:100%;padding:12px;background:#667eea;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;transition:background 0.3s;}
+    .btn-login:hover{background:#5a67d8;}
+    .error-msg{color:#ef4444;font-size:14px;margin-top:10px;}
+    .sidebar{width:250px;background:linear-gradient(180deg,#667eea 0%,#764ba2 100%);color:#fff;padding:20px 0;position:fixed;height:100vh;overflow-y:auto;box-shadow:2px 0 10px rgba(0,0,0,0.1);}
+    .sidebar h3{padding:0 20px;margin:20px 0 10px;font-size:18px;border-bottom:1px solid rgba(255,255,255,0.2);}
+    .sidebar ul{list-style:none;padding:0;margin:0;}
+    .sidebar li{margin:0;}
+    .sidebar a{display:block;padding:12px 20px;color:#fff;text-decoration:none;transition:background 0.3s;border-left:3px solid transparent;}
+    .sidebar a:hover,.sidebar a.active{background:rgba(255,255,255,0.1);border-left-color:#fff;}
+    .main-content{flex:1;margin-left:250px;padding:20px;background:#f8f9fa;}
+    .header{background:#fff;padding:20px;text-align:center;border-bottom:1px solid #eee;margin-bottom:20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+    .header h1{margin:0;font-size:28px;color:#667eea;}
+    .section-content{display:none;}
+    .section-content.active{display:block;}
+    .submenu{display:none;margin-left:25px;margin-top:5px;}
+    .arrow{font-size:14px;transition:transform 0.2s ease;}
+    .open .arrow{transform:rotate(90deg);}
+    .logout-btn{position:absolute;bottom:20px;left:20px;width:calc(100% - 40px);background:#ef4444;color:#fff;padding:12px;border-radius:8px;border:none;cursor:pointer;font-weight:600;}
+    .logout-btn:hover{background:#dc2626;}
   </style>
 </head>
+
 <body>
-  <!-- SIDEBAR -->
-  <nav class="sidebar" aria-label="Sidebar">
-    <div>
-      <div class="brand">
-        <!-- ganti src dengan logo Surprice kamu -->
-        <img src="https://via.placeholder.com/120x120.png?text=Surprice" alt="Logo Surprice">
-        <div>
-          <div class="title">Surprice Operasional</div>
-          <div class="subtitle">Dashboard & Laporan 2025</div>
-        </div>
+  <!-- Login Page -->
+  <div id="loginPage" class="login-page">
+    <div class="login-box">
+      <h2>🔐 Login Sistem Inventory</h2>
+      <p style="color:#666;margin-bottom:20px;">Username: admin | Password: admin1234</p>
+      <div class="form-group">
+        <label>Username:</label>
+        <input id="username" type="text" placeholder="Masukkan username">
       </div>
-
-      <div style="height:12px;"></div>
-
-      <div class="nav-section">
-        <div style="padding:8px 0 8px 6px;">
-          <div class="muted" style="font-size:12px">Menu Utama</div>
-        </div>
-
-        <ul class="menu" id="mainMenu">
-          <li>
-            <a href="#" onclick="showSection('dashboard')">🏠 Dashboard</a>
-          </li>
-
-          <li id="menu-gudang">
-            <a href="#" onclick="showSection('inventory')">📦 Divisi Gudang</a>
-            <ul class="sub" id="sub-gudang">
-              <li><a href="#" onclick="showSection('inventory')">- Inventory Booth</a></li>
-              <li>
-                <a href="#" class="toggle-sub" onclick="toggleSub(event)">
-                  - Laporan Gudang <span style="margin-left:auto" class="arrow">▶</span>
-                </a>
-                <ul class="sub" id="laporanGudangList" style="display:none;">
-                  <li><a href="https://docs.google.com/spreadsheets/d/14phSwmbLXDSVpc1wBo9NZdz9yV1VIOutwBySSQNewJ8/edit" target="_blank">🧾 V.2 Log Aktivitas Operasional Surprice 2025</a></li>
-                  <li><a href="https://docs.google.com/spreadsheets/d/1XET5ZuVH10Yt4dhVxioCe1jww5-cWfjC/edit?gid=2037484461#gid=2037484461" target="_blank">📊 Laporan_Operasional_Surprice2025</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="#" onclick="showSection('cs')">👥 Divisi Customer Service</a>
-          </li>
-
-          <li>
-            <a href="#" onclick="showSection('marketing')">📈 Marketing & Sales</a>
-          </li>
-
-          <li>
-            <a href="#" onclick="showSection('it')">💻 IT & Development</a>
-          </li>
-        </ul>
+      <div class="form-group">
+        <label>Password:</label>
+        <input id="password" type="password" placeholder="Masukkan password">
       </div>
+      <button class="btn-login" onclick="login()">Login</button>
+      <div id="errorMsg" class="error-msg" style="display:none;">Username atau password salah!</div>
     </div>
-
-    <!-- footer kecil di sidebar (informasi singkat) -->
-    <div style="font-size:12px;color:rgba(255,255,255,0.85);padding:6px 4px;">
-      <div style="margin-bottom:6px">User: <strong style="color:#fff">admin</strong></div>
-      <div style="font-size:11px;color:rgba(255,255,255,0.75)">Versi 1.0 • Surprice</div>
-    </div>
-  </nav>
-
-  <!-- MAIN -->
-  <div class="main">
-    <header class="topbar">
-      <div class="page-title">
-        <h1>Dashboard Operasional Surprice</h1>
-        <p>Ringkasan aktivitas & laporan harian tim</p>
-      </div>
-
-      <div class="datetime-box" aria-live="polite">
-        <div class="day" id="dayName">-</div>
-        <div class="date" id="dateFull">-</div>
-        <div class="time" id="timeNow">-</div>
-      </div>
-    </header>
-
-    <main class="content" id="contentArea">
-      <!-- cards -->
-      <div class="card-row">
-        <div class="card">
-          <h3>Total Item</h3>
-          <div class="value" id="cardTotalItem">0</div>
-        </div>
-        <div class="card">
-          <h3>Stok Awal</h3>
-          <div class="value" id="cardStokAwal">0</div>
-        </div>
-        <div class="card">
-          <h3>Terjual</h3>
-          <div class="value" id="cardTerjual">0</div>
-        </div>
-        <div class="card">
-          <h3>Tersisa</h3>
-          <div class="value" id="cardTersisa">0</div>
-        </div>
-      </div>
-
-      <!-- inventory table -->
-      <div class="panel">
-        <h3 style="margin-bottom:8px">Tabel Inventory</h3>
-        <div style="overflow:auto">
-          <table>
-            <thead>
-              <tr>
-                <th>No</th><th>Kode</th><th>Nama Barang</th><th>Stok Awal</th><th>Terjual</th><th>Kembali</th><th>Tersisa</th><th>Selisih</th>
-              </tr>
-            </thead>
-            <tbody id="tableBody">
-              <tr><td colspan="8" style="text-align:center;padding:18px;color:#0b3a67">📭 Belum ada data. Klik "Muat Data dari Sheets".</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </main>
-
-    <footer style="background:#0a4b9b;color:#fff;padding:12px;text-align:center;font-size:13px;">
-      © 2025 Sendi_Muchdianto • Surprice Operasional
-    </footer>
   </div>
 
-  <!-- SCRIPTS: tanggal/waktu + menu + contoh data -->
+  <!-- Main App -->
+  <div id="mainApp" class="container" style="display:none;">
+    <nav class="sidebar">
+      <h3>🏢 Dashboard Divisi</h3>
+      <ul>
+        <li>
+          <a href="#" onclick="showSection('inventory')" class="active">📦 Divisi Gudang</a>
+          <ul style="padding-left:20px;">
+            <li><a href="#" onclick="showSection('inventory')"> - Inventory Booth</a></li>
+            <li id="laporan-gudang-menu">
+              <a href="#" onclick="toggleSubmenu(event)">
+                🧾 - Laporan Gudang <span class="arrow">▶</span>
+              </a>
+              <ul id="submenu-laporan-gudang" class="submenu">
+                <li>
+                  <a href="https://docs.google.com/spreadsheets/d/14phSwmbLXDSVpc1wBo9NZdz9yV1VIOutwBySSQNewJ8/edit" target="_blank">
+                    🧾 V.2 Log Aktivitas Operasional Surprice 2025
+                  </a>
+                </li>
+                <li>
+                  <a href="https://docs.google.com/spreadsheets/d/1XET5ZuVH10Yt4dhVxioCe1jww5-cWfjC/edit?gid=2037484461#gid=2037484461" target="_blank">
+                    📊 Laporan_Operasional_Surprice2025
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a>
+          <ul style="padding-left:20px;">
+            <li><a href="#"> - Keluhan Pelanggan</a></li>
+            <li><a href="#"> - Support Tiket</a></li>
+            <li><a href="#"> - Feedback Survey</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">📈 Divisi Marketing & Sales Digital</a></li>
+        <li><a href="#">⚙️ Divisi Admin & Purchasing</a></li>
+        <li><a href="#">🚚 Divisi Transporter</a></li>
+        <li><a href="#">📬 Divisi Kurir</a></li>
+        <li><a href="#">💻 Divisi IT</a></li>
+      </ul>
+
+      <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+    </nav>
+
+    <div class="main-content">
+      <div class="header">
+        <h1 id="pageTitle">Selamat Datang di Sistem Inventory</h1>
+      </div>
+
+      <div id="inventorySection" class="section-content active">
+        <div class="config-section">
+          <h3>⚙️ Konfigurasi Google Sheets</h3>
+          <div class="config-input">
+            <label>URL Google Apps Script:</label>
+            <input id="apiUrl" type="text" placeholder="Masukkan URL Web App (/exec) di sini" value="https://script.google.com/macros/s/AKfycbzkCElaoI9fxJaIptSjgddlbs73dPtq6Mc8TMta86dts0rpf8noAYW1Cy82fn3nklcxag/exec">
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn-primary" onclick="saveConfig()">💾 Simpan Konfigurasi</button>
+            <button class="btn-success" onclick="loadData()">🔄 Muat Data dari Sheets</button>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <button class="btn-success" onclick="openModalTambah()">➕ Tambah Produk</button>
+          <button class="btn-info" onclick="hitungOtomatis()">🔄 Hitung Otomatis</button>
+          <button class="btn-warning" onclick="simpanKeSheets()">💾 Simpan ke Sheets</button>
+          <button class="btn-primary" onclick="exportExcel()">📊 Export Excel</button>
+          <button class="btn-danger" onclick="downloadExcel()">⬇️ Download Excel</button>
+          <button class="btn-danger" onclick="deleteAllData()">🗑️ Delete Semua Data</button>
+        </div>
+
+        <table id="inventoryTable">
+          <thead>
+            <tr>
+              <th>No</th><th>Kode Barang</th><th>Nama Barang</th><th>Stok Awal</th>
+              <th>Terjual</th><th>Kembali</th><th>Tersedia</th><th>Selisih</th>
+              <th>Status</th><th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr><td colspan="10" class="loading">📭 Belum ada data. Klik "Muat Data dari Sheets".</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // ---------- Date & Time (Asia/Jakarta) ----------
-    function pad(n){ return n.toString().padStart(2,'0'); }
+    // LOGIN
+    const validUsername = "admin";
+    const validPassword = "admin1234";
 
-    function updateDateTime() {
-      // Use Intl to format in id-ID timezone Asia/Jakarta
-      const now = new Date();
-      // Convert to Jakarta time by using locale with timeZone
-      const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Jakarta' };
-      const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Jakarta' };
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
 
-      const dayName = new Intl.DateTimeFormat('id-ID', { weekday: 'long', timeZone: 'Asia/Jakarta' }).format(now);
-      const dateFull = new Intl.DateTimeFormat('id-ID', optionsDate).format(now);
-      const timeNow = new Intl.DateTimeFormat('id-ID', optionsTime).format(now);
-
-      document.getElementById('dayName').textContent = dayName.charAt(0).toUpperCase() + dayName.slice(1);
-      document.getElementById('dateFull').textContent = dateFull;
-      document.getElementById('timeNow').textContent = timeNow;
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-
-    // ---------- Toggle laporan gudang submenu ----------
-    function toggleSub(e){
-      e.preventDefault();
-      const list = document.getElementById('laporanGudangList');
-      const visible = list.style.display === 'block';
-      list.style.display = visible ? 'none' : 'block';
-
-      // rotate arrow
-      const arrow = e.currentTarget.querySelector('.arrow');
-      if(arrow) arrow.style.transform = visible ? 'none' : 'rotate(90deg)';
-    }
-
-    // ---------- Simple showSection (replace content) ----------
-    function showSection(key){
-      const content = document.getElementById('contentArea');
-      // keep same layout but update header + sample content
-      let html = '';
-      if(key === 'dashboard'){
-        html = `
-          <div class="card-row">
-            <div class="card"><h3>Total Item</h3><div class="value" id="cardTotalItem">128</div></div>
-            <div class="card"><h3>Stok Awal</h3><div class="value" id="cardStokAwal">320</div></div>
-            <div class="card"><h3>Terjual</h3><div class="value" id="cardTerjual">192</div></div>
-            <div class="card"><h3>Tersisa</h3><div class="value" id="cardTersisa">128</div></div>
-          </div>
-          <div class="panel"><h3>Ringkasan Hari Ini</h3><p>Gunakan menu di kiri untuk membuka laporan atau log aktivitas. Klik "Laporan Gudang" untuk buka Google Sheets terkait.</p></div>
-        `;
-      } else if(key === 'inventory'){
-        html = `
-          <div class="panel"><h3>Inventory Booth</h3><p>Data inventory ditampilkan di bawah.</p>
-            <table style="margin-top:12px">
-              <thead><tr><th>No</th><th>Kode</th><th>Nama Barang</th><th>Stok Awal</th><th>Terjual</th><th>Kembali</th><th>Tersisa</th><th>Selisih</th></tr></thead>
-              <tbody>
-                <tr><td>1</td><td>KFC5003</td><td>Surprice Set Toples Emas 3pcs</td><td>10</td><td>4</td><td>0</td><td>6</td><td>0</td></tr>
-                <tr><td>2</td><td>PTT5601</td><td>Surprice Set Toples Emas 3pcs</td><td>8</td><td>2</td><td>0</td><td>6</td><td>0</td></tr>
-              </tbody>
-            </table>
-          </div>
-        `;
+      if (username === validUsername && password === validPassword) {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainApp").style.display = "flex";
+        errorMsg.style.display = "none";
       } else {
-        html = `<div class="panel"><h3>${key.toUpperCase()}</h3><p>Konten ${key} belum diisi. Fitur bisa dikembangkan lebih lanjut.</p></div>`;
+        errorMsg.style.display = "block";
       }
-      content.innerHTML = html;
     }
 
-    // inisialisasi tampilan default
-    showSection('dashboard');
+    function logout() {
+      document.getElementById("mainApp").style.display = "none";
+      document.getElementById("loginPage").style.display = "flex";
+    }
 
-    // ---------- (optional) prevent accidental selection when clicking sidebar on mobile ----------
-    document.querySelectorAll('nav.sidebar a').forEach(a => a.addEventListener('click', (e) => {
-      // keep default behavior for links with target _blank
-      if(a.target === '_blank') return;
-      e.preventDefault();
-    }));
+    // SUBMENU LAPORAN GUDANG
+    function toggleSubmenu(event) {
+      event.preventDefault();
+      const menuItem = document.getElementById("laporan-gudang-menu");
+      const submenu = document.getElementById("submenu-laporan-gudang");
+      const isOpen = submenu.style.display === "block";
+      submenu.style.display = isOpen ? "none" : "block";
+      menuItem.classList.toggle("open", !isOpen);
+    }
   </script>
 </body>
 </html>
