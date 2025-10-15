@@ -685,6 +685,12 @@
           </li>
 
           <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a></li>
+            <a href="https://docs.google.com/spreadsheets/d/1T8coKtJPfxeLhOgo-CHHqJd5MOCs3xmCFIYkXB1ETi0/edit?gid=1946424206#gid=1946424206" target="_blank">
+                      📊 Komplain Chat2025
+                    </a>
+                  </li>
+                </ul>
+              </li>
           <li><a href="#" onclick="showSection('divisi-marketing')">📈 Divisi Marketing & Sales Digital</a></li>
           <li><a href="#" onclick="showSection('divisi-admin')">⚙️ Divisi Admin & Purchasing</a></li>
           <li><a href="#" onclick="showSection('divisi-transporter')">🚚 Divisi Transporter</a></li>
