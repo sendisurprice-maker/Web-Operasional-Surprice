@@ -695,9 +695,7 @@
           <li><a href="#" onclick="showSection('divisi-kurir')">📬 Divisi Kurir</a></li>
           <li><a href="#" onclick="showSection('divisi-finance')">💰 Divisi Finance</a></li>
           <li><a href="#" onclick="showSection('divisi-hrd')">👔 Divisi HRD</a></li>
-        </ul>
-      </div>
-
+        </div>
       <div class="sidebar-footer">
         <button class="logout-btn" onclick="logout()">🚪 Logout</button>
       </div>
