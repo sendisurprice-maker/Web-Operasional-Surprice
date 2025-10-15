@@ -976,7 +976,8 @@
           <h3>🛒 Toko Kami Tersedia Di</h3>
           <div class="partner-logos">
             <div class="partner-logo">
-              <img src="https://commons.wikimedia.org/wiki/File:Shopee_logo.svg" alt="Shopee">
+              <img src="<img src="images/shopee.svg" alt="Logo Shopee" width="120">
+" alt="Shopee">
             </div>
             <div class="partner-logo">
               <img src="https://share.google/images/UxSnQMouQ2MQNgZnY" alt="Lazada">
