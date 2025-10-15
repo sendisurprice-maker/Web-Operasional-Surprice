@@ -707,12 +707,9 @@
     <div class="main-content">
       <!-- Top Bar -->
       <div class="top-bar">
-        <h1 id="pageTitle">Dashboard Utama</h1>
-        <div class="datetime-display">
-          <div class="date" id="currentDate">Senin, 15 Oktober 2025</div>
-          <div class="time" id="currentTime">14:30:45</div>
-        </div>
-      </div>
+  📅 <span id="tanggal"></span> | ⏰ <span id="waktu"></span>
+</div>
+
 
       <!-- Content Area -->
       <div class="content-area">
@@ -1278,6 +1275,20 @@
       }
     });
   </script>
+  <script>
+  function updateDateTime() {
+    const now = new Date();
+    const tanggal = now.toLocaleDateString('id-ID', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+    const waktu = now.toLocaleTimeString('id-ID');
+    document.getElementById('tanggal').textContent = tanggal;
+    document.getElementById('waktu').textContent = waktu;
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+</script>
+
 </body>
 </html>
         
