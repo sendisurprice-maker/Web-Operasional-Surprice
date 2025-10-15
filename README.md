@@ -962,7 +962,7 @@ showSavedSheets();
   <input id="sheetName" type="text" placeholder="Masukkan nama laporan">
 
   <label>URL Google Sheets - Transporter:</label>
-  <input id="apiUrlAdmin" type="text" placeholder="Masukkan URL Google Sheets">
+  <input id="apiUrlTransporter" type="text" placeholder="Masukkan URL Google Sheets">
 </div>
 
 <button class="btn-primary" onclick="saveSheetUrl()">💾 Simpan URL</button>
@@ -981,7 +981,7 @@ function saveSheetUrl() {
   localStorage.setItem('savedSheets', JSON.stringify(sheets));
 
   document.getElementById('sheetName').value = '';
-  document.getElementById('apiUrlAdmin').value = '';
+  document.getElementById('apiUrlTransporter').value = '';
   showSavedSheets();
 }
 
@@ -1410,4 +1410,4 @@ showSavedSheets();
 </script>
 
 
-        
+       
