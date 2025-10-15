@@ -980,7 +980,7 @@
               <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" alt="Shopee">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lazada_Logo.png" alt="Lazada">
+              <img src="https://www.citypng.com/photo/26643/lazada-logo-transparent-background" alt="Lazada">
             </div>
             <div class="partner-logo">
               <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
@@ -989,10 +989,10 @@
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Tokopedia_logo.svg" alt="Tokopedia">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Blibli_2021_logo.svg" alt="Blibli">
+              <img src="https://logowik.com/blibli-com-logo-vector-svg-pdf-ai-eps-cdr-free-download-11561.html" alt="Blibli">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Bukalapak_logo.svg" alt="Bukalapak">
+              <img src="https://seeklogo.com/vector-logo/386990/bukalapak" alt="Bukalapak">
             </div>
           </div>
         </div>
