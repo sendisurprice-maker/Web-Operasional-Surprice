@@ -903,15 +903,55 @@
         <!-- Admin & Purchasing Section -->
         <div id="divisiAdminSection" class="section-content">
           <div class="config-section">
-            <h3>⚙️ Divisi Admin & Purchasing</h3>
-            <div class="config-input">
-              <label>URL Google Sheets - Admin & Purchasing:</label>
-              <input id="apiUrlAdmin" type="text" placeholder="Masukkan URL Google Sheets untuk Admin & Purchasing">
-            </div>
-            <button class="btn-primary" onclick="saveSheetUrl('Admin')">💾 Simpan URL</button>
-            <button class="btn-success" onclick="openSheet('Admin')">🔗 Buka Google Sheets</button>
-          </div>
-        </div>
+           <h3>⚙️ Divisi Admin & Purchasing</h3>
+<div class="config-input">
+  <label>Nama Laporan:</label>
+  <input id="sheetName" type="text" placeholder="Masukkan nama laporan">
+
+  <label>URL Google Sheets - Admin & Purchasing:</label>
+  <input id="apiUrlAdmin" type="text" placeholder="Masukkan URL Google Sheets">
+</div>
+
+<button class="btn-primary" onclick="saveSheetUrl()">💾 Simpan URL</button>
+<button class="btn-success" onclick="showSavedSheets()">📋 Lihat Daftar</button>
+
+<ul id="savedSheets"></ul>
+
+<script>
+function saveSheetUrl() {
+  const name = document.getElementById('sheetName').value.trim();
+  const url = document.getElementById('apiUrlAdmin').value.trim();
+  if (!name || !url) return alert('Isi nama dan URL terlebih dahulu.');
+
+  let sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  sheets.push({ name, url });
+  localStorage.setItem('savedSheets', JSON.stringify(sheets));
+
+  document.getElementById('sheetName').value = '';
+  document.getElementById('apiUrlAdmin').value = '';
+  showSavedSheets();
+}
+
+function showSavedSheets() {
+  const sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  const list = document.getElementById('savedSheets');
+  list.innerHTML = sheets.map((s, i) =>
+    `<li>
+      <a href="${s.url}" target="_blank">${s.name}</a>
+      <button onclick="deleteSheet(${i})">❌</button>
+    </li>`
+  ).join('');
+}
+
+function deleteSheet(i) {
+  let sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  sheets.splice(i, 1);
+  localStorage.setItem('savedSheets', JSON.stringify(sheets));
+  showSavedSheets();
+}
+
+showSavedSheets();
+</script>
 
         <!-- Transporter Section -->
         <div id="divisiTransporterSection" class="section-content">
