@@ -1,4 +1,4 @@
-[kantor_pos_inventory.html](https://github.com/user-attachments/files/22918592/kantor_pos_inventory.html)
+[kantor_pos_inventory (1).html](https://github.com/user-attachments/files/22918650/kantor_pos_inventory.1.html)
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -823,4 +823,171 @@
     function logout() {
       if (confirm("Apakah Anda yakin ingin logout?")) {
         document.getElementById("mainApp").style.display = "none";
+        document.getElementById("loginPage").style.display = "flex";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+      }
+    }
+
+    // DATE TIME UPDATE
+    function updateDateTime() {
+      const now = new Date();
+      const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+      const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+      
+      const dayName = days[now.getDay()];
+      const date = now.getDate();
+      const month = months[now.getMonth()];
+      const year = now.getFullYear();
+      
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      
+      document.getElementById('currentDate').textContent = `${dayName}, ${date} ${month} ${year}`;
+      document.getElementById('currentTime').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    // SUBMENU TOGGLE
+    function toggleSubmenu(event, submenuId) {
+      event.preventDefault();
+      const submenu = document.getElementById(submenuId);
+      const menuItem = event.currentTarget.parentElement;
+      const isOpen = submenu.style.display === "block";
+      
+      submenu.style.display = isOpen ? "none" : "block";
+      menuItem.classList.toggle("open", !isOpen);
+    }
+
+    // SHOW SECTION
+    function showSection(sectionName) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.section-content');
+      sections.forEach(section => section.classList.remove('active'));
+      
+      // Remove active class from all menu items
+      const menuItems = document.querySelectorAll('.sidebar a');
+      menuItems.forEach(item => item.classList.remove('active'));
+      
+      // Show selected section
+      let sectionId = '';
+      let pageTitle = '';
+      
+      switch(sectionName) {
+        case 'dashboard':
+          sectionId = 'dashboardSection';
+          pageTitle = 'Dashboard Utama';
+          updateDashboardStats();
+          break;
+        case 'inventory':
+          sectionId = 'inventorySection';
+          pageTitle = 'Inventory Booth - Divisi Gudang';
+          break;
+        case 'kebersihan':
+          sectionId = 'kebersihanSection';
+          pageTitle = 'Laporan Kebersihan Gudang';
+          break;
+        case 'defect':
+          sectionId = 'defectSection';
+          pageTitle = 'Status Defect Barang';
+          updateDefectStats();
+          break;
+        case 'customer-service':
+          sectionId = 'customerServiceSection';
+          pageTitle = 'Divisi Customer Service';
+          break;
+        default:
+          sectionId = 'dashboardSection';
+          pageTitle = 'Dashboard Utama';
+      }
+      
+      document.getElementById(sectionId).classList.add('active');
+      document.getElementById('pageTitle').textContent = pageTitle;
+      
+      // Set active menu item
+      event.target.classList.add('active');
+    }
+
+    // UPDATE DASHBOARD STATS
+    function updateDashboardStats() {
+      // Sample data - replace with actual data from your system
+      document.getElementById('totalInventory').textContent = '1,234';
+      document.getElementById('defectJual').textContent = '45';
+      document.getElementById('defectPerbaikan').textContent = '23';
+      document.getElementById('defectHancur').textContent = '12';
+    }
+
+    // UPDATE DEFECT STATS
+    function updateDefectStats() {
+      document.getElementById('defectJualDetail').textContent = '45';
+      document.getElementById('defectPerbaikanDetail').textContent = '23';
+      document.getElementById('defectHancurDetail').textContent = '12';
+      
+      // Sample defect data
+      const defectData = [
+        { kode: 'BRG001', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: 15, keterangan: 'Goresan ringan', tanggal: '15 Okt 2025' },
+        { kode: 'BRG002', nama: 'Booth Type B', kategori: 'Perbaikan', jumlah: 8, keterangan: 'Engsel rusak', tanggal: '14 Okt 2025' },
+        { kode: 'BRG003', nama: 'Booth Type C', kategori: 'Hancur', jumlah: 5, keterangan: 'Tidak dapat diperbaiki', tanggal: '13 Okt 2025' },
+        { kode: 'BRG004', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: 12, keterangan: 'Cat mengelupas', tanggal: '15 Okt 2025' },
+        { kode: 'BRG005', nama: 'Booth Type D', kategori: 'Perbaikan', jumlah: 6, keterangan: 'Roda macet', tanggal: '14 Okt 2025' },
+      ];
+      
+      const tbody = document.getElementById('defectTableBody');
+      tbody.innerHTML = '';
+      
+      defectData.forEach((item, index) => {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${item.kode}</td>
+          <td>${item.nama}</td>
+          <td><span style="padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; 
+            background: ${item.kategori === 'Jual Murah' ? '#fef3c7' : item.kategori === 'Perbaikan' ? '#dbeafe' : '#fee2e2'};
+            color: ${item.kategori === 'Jual Murah' ? '#d97706' : item.kategori === 'Perbaikan' ? '#2563eb' : '#dc2626'};">
+            ${item.kategori}
+          </span></td>
+          <td><strong>${item.jumlah}</strong></td>
+          <td>${item.keterangan}</td>
+          <td>${item.tanggal}</td>
+        `;
+      });
+    }
+
+    // CONFIG & DATA FUNCTIONS (Placeholder)
+    function saveConfig() {
+      const apiUrl = document.getElementById('apiUrl').value;
+      if (apiUrl) {
+        alert('✅ Konfigurasi berhasil disimpan!');
+      } else {
+        alert('❌ Harap masukkan URL Google Apps Script!');
+      }
+    }
+
+    function loadData() {
+      const apiUrl = document.getElementById('apiUrl').value;
+      if (!apiUrl) {
+        alert('❌ Harap konfigurasi URL terlebih dahulu!');
+        return;
+      }
+      
+      // Simulate loading
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '<tr><td colspan="10" class="loading">⏳ Memuat data dari Google Sheets...</td></tr>';
+      
+      setTimeout(() => {
+        tbody.innerHTML = '<tr><td colspan="10" class="loading">✅ Data berhasil dimuat! (Contoh data akan muncul di sini)</td></tr>';
+      }, 1500);
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set initial datetime if logged in
+      if (document.getElementById('mainApp').style.display !== 'none') {
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+      }
+    });
+  </script>
+</body>
+</html>
         
