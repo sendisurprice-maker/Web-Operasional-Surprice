@@ -1,4 +1,29 @@
 <html lang="id">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/3/35/Superman_S_symbol.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/en/3/35/Superman_S_symbol.png">
+<meta name="theme-color" content="#0047AB">
+<link rel="manifest" href="manifest.json">
+{
+  "name": "Surprice Operasional",
+  "short_name": "Surprice",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0047AB",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/en/3/35/Superman_S_symbol.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/en/3/35/Superman_S_symbol.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1285,6 +1310,13 @@
   }
   setInterval(updateDateTime, 1000);
   updateDateTime();
+</script>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").then(() => {
+      console.log("Service Worker terdaftar");
+    });
+  }
 </script>
 
 </body>
