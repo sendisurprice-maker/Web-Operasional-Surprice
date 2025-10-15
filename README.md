@@ -240,8 +240,7 @@ input[type="number"]{width:80px;padding:6px;border-radius:6px;border:1px solid #
         <a href="https://docs.google.com/spreadsheets/d/14phSwmbLXDSVpc1wBo9NZdz9yV1VIOutwBySSQNewJ8/edit" target="_blank">
           🧾 V.2 Log Aktivitas Operasional Surprice 2025
         </a>
-      </li>
-      <li>
+       <li>
         <a href="https://docs.google.com/spreadsheets/d/1XET5ZuVH10Yt4dhVxioCe1jww5-cWfjC/edit?gid=2037484461#gid=2037484461" target="_blank">
           📊 Laporan_Operasional_Surprice2025
         </a>
@@ -309,9 +308,8 @@ input[type="number"]{width:80px;padding:6px;border-radius:6px;border:1px solid #
       </li>
     </ul>
     <button class="logout-btn" onclick="logout()">🚪 Logout</button>
-  </nav>
-
-  <div class="main-content">
+  
+    <div class="main-content">
     <div class="header">
       <h1 id="pageTitle">Selamat Datang di Sistem Inventory</h1>
     </div>
