@@ -596,11 +596,12 @@
           </li>
 
           <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a></li>
-          <li><a href="#">📈 Divisi Marketing & Sales Digital</a></li>
-          <li><a href="#">⚙️ Divisi Admin & Purchasing</a></li>
-          <li><a href="#">🚚 Divisi Transporter</a></li>
-          <li><a href="#">📬 Divisi Kurir</a></li>
-          <li><a href="#">💻 Divisi IT</a></li>
+          <li><a href="#" onclick="showsection('Divisi-Marketing')">📈 Divisi Marketing & Sales Digital</a></li>
+          <li><a href="#" onclick="showSection('Divsisi-Admin')">⚙️ Divisi Admin & Purchasing</a></li>
+          <li><a href="#" onclick="showSection('Divisi-Transporter')">🚚 Divisi Transporter</a></li>
+          <li><a href="#" onclick="showSection('Divisi-Kurir')">📬 Divisi Kurir</a></li>
+          <li><a href="#" onclick="showSection('Divisi-Finance')">💻 Divisi Finance</a></li>
+          <li><a href="#" onclick="showSection('Divisi-HRD')">💻 Divisi HRD</a></li>
         </ul>
       </div>
 
@@ -909,25 +910,25 @@
     // UPDATE DASHBOARD STATS
     function updateDashboardStats() {
       // Sample data - replace with actual data from your system
-      document.getElementById('totalInventory').textContent = '1,234';
-      document.getElementById('defectJual').textContent = '45';
-      document.getElementById('defectPerbaikan').textContent = '23';
-      document.getElementById('defectHancur').textContent = '12';
+      document.getElementById('totalInventory').textContent = '830';
+      document.getElementById('defectJual').textContent = '644';
+      document.getElementById('defectPerbaikan').textContent = '186';
+      document.getElementById('defectHancur').textContent = '';
     }
 
     // UPDATE DEFECT STATS
     function updateDefectStats() {
-      document.getElementById('defectJualDetail').textContent = '45';
-      document.getElementById('defectPerbaikanDetail').textContent = '23';
-      document.getElementById('defectHancurDetail').textContent = '12';
+      document.getElementById('defectJualDetail').textContent = '644';
+      document.getElementById('defectPerbaikanDetail').textContent = '186';
+      document.getElementById('defectHancurDetail').textContent = '';
       
       // Sample defect data
       const defectData = [
-        { kode: 'BRG001', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: 15, keterangan: 'Goresan ringan', tanggal: '15 Okt 2025' },
-        { kode: 'BRG002', nama: 'Booth Type B', kategori: 'Perbaikan', jumlah: 8, keterangan: 'Engsel rusak', tanggal: '14 Okt 2025' },
-        { kode: 'BRG003', nama: 'Booth Type C', kategori: 'Hancur', jumlah: 5, keterangan: 'Tidak dapat diperbaiki', tanggal: '13 Okt 2025' },
-        { kode: 'BRG004', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: 12, keterangan: 'Cat mengelupas', tanggal: '15 Okt 2025' },
-        { kode: 'BRG005', nama: 'Booth Type D', kategori: 'Perbaikan', jumlah: 6, keterangan: 'Roda macet', tanggal: '14 Okt 2025' },
+        { kode: 'BRG001', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: 644, keterangan: 'Goresan ringan', tanggal: '15 Okt 2025' },
+        { kode: 'BRG002', nama: 'Booth Type B', kategori: 'Perbaikan', jumlah: 186, keterangan: 'Engsel rusak', tanggal: '15 Okt 2025' },
+        { kode: 'BRG003', nama: 'Booth Type C', kategori: 'Hancur', jumlah: , keterangan: 'Tidak dapat diperbaiki', tanggal: '15 Okt 2025' },
+        { kode: 'BRG004', nama: 'Booth Type A', kategori: 'Jual Murah', jumlah: , keterangan: 'Cat mengelupas', tanggal: '15 Okt 2025' },
+        { kode: 'BRG005', nama: 'Booth Type D', kategori: 'Perbaikan', jumlah: , keterangan: 'Roda macet', tanggal: '15 Okt 2025' },
       ];
       
       const tbody = document.getElementById('defectTableBody');
