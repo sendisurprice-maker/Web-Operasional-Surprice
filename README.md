@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sistem Inventory Booth - Dilwali</title>
+  <title>Sistem Task Management Tracker Operasional Surprice</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
@@ -558,7 +558,7 @@
     <!-- Sidebar -->
     <nav class="sidebar">
       <div class="sidebar-header">
-        <h2>📦 DILWALI WMS</h2>
+        <h2>📦 Tracker Management System</h2>
         <p>Warehouse Management System</p>
       </div>
       
