@@ -244,10 +244,8 @@ input[type="number"]{width:80px;padding:6px;border-radius:6px;border:1px solid #
         <a href="https://docs.google.com/spreadsheets/d/1XET5ZuVH10Yt4dhVxioCe1jww5-cWfjC/edit?gid=2037484461#gid=2037484461" target="_blank">
           📊 Laporan_Operasional_Surprice2025
         </a>
-      </li>
-    </ul>
-  </li>
-</ul>
+      </ul>
+  </ul>
 
 <script>
   function toggleSubmenu(event) {
