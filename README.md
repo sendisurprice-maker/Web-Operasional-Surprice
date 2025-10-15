@@ -956,94 +956,163 @@ showSavedSheets();
         <!-- Transporter Section -->
         <div id="divisiTransporterSection" class="section-content">
           <div class="config-section">
-            <h3>🚚 Divisi Transporter</h3>
-            <div class="config-input">
-              <label>URL Google Sheets - Transporter:</label>
-              <input id="apiUrlTransporter" type="text" placeholder="Masukkan URL Google Sheets untuk Transporter">
-            </div>
-            <button class="btn-primary" onclick="saveSheetUrl('Transporter')">💾 Simpan URL</button>
-            <button class="btn-success" onclick="openSheet('Transporter')">🔗 Buka Google Sheets</button>
-          </div>
-        </div>
+          <h3>⚙️ Divisi Transporter</h3>
+<div class="config-input">
+  <label>Nama Laporan:</label>
+  <input id="sheetName" type="text" placeholder="Masukkan nama laporan">
+
+  <label>URL Google Sheets - Transporter:</label>
+  <input id="apiUrlAdmin" type="text" placeholder="Masukkan URL Google Sheets">
+</div>
+
+<button class="btn-primary" onclick="saveSheetUrl()">💾 Simpan URL</button>
+<button class="btn-success" onclick="showSavedSheets()">📋 Lihat Daftar</button>
+
+<ul id="savedSheets"></ul>
+
+<script>
+function saveSheetUrl() {
+  const name = document.getElementById('sheetName').value.trim();
+  const url = document.getElementById('apiUrlTransporter').value.trim();
+  if (!name || !url) return alert('Isi nama dan URL terlebih dahulu.');
+
+  let sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  sheets.push({ name, url });
+  localStorage.setItem('savedSheets', JSON.stringify(sheets));
+
+  document.getElementById('sheetName').value = '';
+  document.getElementById('apiUrlAdmin').value = '';
+  showSavedSheets();
+}
+
+function showSavedSheets() {
+  const sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  const list = document.getElementById('savedSheets');
+  list.innerHTML = sheets.map((s, i) =>
+    `<li>
+      <a href="${s.url}" target="_blank">${s.name}</a>
+      <button onclick="deleteSheet(${i})">❌</button>
+    </li>`
+  ).join('');
+}
+
+function deleteSheet(i) {
+  let sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  sheets.splice(i, 1);
+  localStorage.setItem('savedSheets', JSON.stringify(sheets));
+  showSavedSheets();
+}
+
+showSavedSheets();
+</script>
+
 
         <!-- Kurir Section -->
         <div id="divisiKurirSection" class="section-content">
           <div class="config-section">
-            <h3>📬 Divisi Kurir</h3>
-            <div class="config-input">
-              <label>URL Google Sheets - Kurir:</label>
-              <input id="apiUrlKurir" type="text" placeholder="Masukkan URL Google Sheets untuk Kurir">
-            </div>
-            <button class="btn-primary" onclick="saveSheetUrl('Kurir')">💾 Simpan URL</button>
-            <button class="btn-success" onclick="openSheet('Kurir')">🔗 Buka Google Sheets</button>
-          </div>
-        </div>
+            <h3>⚙️ Divisi Kurir</h3>
+<div class="config-input">
+  <label>Nama Laporan:</label>
+  <input id="sheetName" type="text" placeholder="Masukkan nama laporan">
+
+  <label>URL Google Sheets - Kurir:</label>
+  <input id="apiUrlAdmin" type="text" placeholder="Masukkan URL Google Sheets">
+</div>
+
+<button class="btn-primary" onclick="saveSheetUrl()">💾 Simpan URL</button>
+<button class="btn-success" onclick="showSavedSheets()">📋 Lihat Daftar</button>
+
+<ul id="savedSheets"></ul>
+
+<script>
+function saveSheetUrl() {
+  const name = document.getElementById('sheetName').value.trim();
+  const url = document.getElementById('apiUrlAdmin').value.trim();
+  if (!name || !url) return alert('Isi nama dan URL terlebih dahulu.');
+
+  let sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  sheets.push({ name, url });
+  localStorage.setItem('savedSheets', JSON.stringify(sheets));
+
+  document.getElementById('sheetName').value = '';
+  document.getElementById('apiUrlKurir').value = '';
+  showSavedSheets();
+}
+
+function showSavedSheets() {
+  const sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  const list = document.getElementById('savedSheets');
+  list.innerHTML = sheets.map((s, i) =>
+    `<li>
+      <a href="${s.url}" target="_blank">${s.name}</a>
+      <button onclick="deleteSheet(${i})">❌</button>
+    </li>`
+  ).join('');
+}
+
+function deleteSheet(i) {
+  let sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  sheets.splice(i, 1);
+  localStorage.setItem('savedSheets', JSON.stringify(sheets));
+  showSavedSheets();
+}
+
+showSavedSheets();
+</script>
+
 
         <!-- Finance Section -->
         <div id="divisiFinanceSection" class="section-content">
           <div class="config-section">
-            <h3>💰 Divisi Finance</h3>
-            <div class="config-input">
-              <label>URL Google Sheets - Finance:</label>
-              <input id="apiUrlFinance" type="text" placeholder="Masukkan URL Google Sheets untuk Finance">
-            </div>
-            <button class="btn-primary" onclick="saveSheetUrl('Finance')">💾 Simpan URL</button>
-            <button class="btn-success" onclick="openSheet('Finance')">🔗 Buka Google Sheets</button>
-          </div>
-        </div>
+            <h3>💰 Divisi Finance </h3>
+<div class="config-input">
+  <label>Nama Laporan:</label>
+  <input id="sheetName" type="text" placeholder="Masukkan nama laporan">
 
-        <!-- HRD Section -->
-        <div id="divisiHrdSection" class="section-content">
-          <div class="config-section">
-            <h3>👔 Divisi HRD</h3>
-            <div class="config-input">
-              <label>URL Google Sheets - HRD:</label>
-              <input id="apiUrlHRD" type="text" placeholder="Masukkan URL Google Sheets untuk HRD">
-            </div>
-            <button class="btn-primary" onclick="saveSheetUrl('HRD')">💾 Simpan URL</button>
-            <button class="btn-success" onclick="openSheet('HRD')">🔗 Buka Google Sheets</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-      <div class="footer-content">
-        <!-- Marketplace Partners -->
-        <div class="partner-section">
-          <h3>🛒 Toko Kami Tersedia Di</h3>
-          <div class="partner-logos">
-            <div class="partner-logo">
-   <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Shopee_logo.png" 
-       alt="Shopee Logo" 
-       width="120" 
-       style="display:block; margin:10px auto;">
+  <label>URL Google Sheets - Kurir:</label>
+  <input id="apiUrlFinance" type="text" placeholder="Masukkan URL Google Sheets">
 </div>
-<div class="partner-logo">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lazada_Logo.png" 
-       alt="Lazada Logo" 
-       width="120" 
-       style="display:block; margin:10px auto;">
-</div>
-            <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
-            </div>
-            <div class="partner-logo">
-              <img src="https://share.google/images/oM0v1dj32LY90scOx" alt="Tokopedia">
-            </div>
-            <div class="partner-logo">
-              <img src="https://share.google/images/93EGMkBV1mvXrn9s8" alt="Blibli">
-            </div>
-            <div class="partner-logo">
-              <img src="https://share.google/images/tHLr42ioXPszEzLsf" alt="Bukalapak">
-            </div>
-          </div>
-        </div>
 
-        <div class="divider"></div>
+<button class="btn-primary" onclick="saveSheetUrl()">💾 Simpan URL</button>
+<button class="btn-success" onclick="showSavedSheets()">📋 Lihat Daftar</button>
 
+<ul id="savedSheets"></ul>
+
+<script>
+function saveSheetUrl() {
+  const name = document.getElementById('sheetName').value.trim();
+  const url = document.getElementById('apiUrlAdmin').value.trim();
+  if (!name || !url) return alert('Isi nama dan URL terlebih dahulu.');
+
+  let sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  sheets.push({ name, url });
+  localStorage.setItem('savedSheets', JSON.stringify(sheets));
+
+  document.getElementById('sheetName').value = '';
+  document.getElementById('apiUrlKurir').value = '';
+  showSavedSheets();
+}
+
+function showSavedSheets() {
+  const sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  const list = document.getElementById('savedSheets');
+  list.innerHTML = sheets.map((s, i) =>
+    `<li>
+      <a href="${s.url}" target="_blank">${s.name}</a>
+      <button onclick="deleteSheet(${i})">❌</button>
+    </li>`
+  ).join('');
+}
+
+function deleteSheet(i) {
+  let sheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+  sheets.splice(i, 1);
+  localStorage.setItem('savedSheets', JSON.stringify(sheets));
+  showSavedSheets();
+}
+
+showSavedSheets();
+</script>
         <!-- Courier Partners -->
         <div class="partner-section">
           <h3>🚚 Partner Kurir Kami</h3>
@@ -1340,6 +1409,5 @@ showSavedSheets();
   }
 </script>
 
-</body>
-</html>
+
         
