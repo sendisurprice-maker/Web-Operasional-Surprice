@@ -196,8 +196,47 @@ input[type="number"]{width:80px;padding:6px;border-radius:6px;border:1px solid #
       <li><a href="#" onclick="showSection('inventory')" class="active">📦 Divisi Gudang</a>
         <ul style="padding-left:20px;">
           <li><a href="#" onclick="showSection('inventory')"> - Inventory Booth</a></li>
-          <li><a href="#" onclick="showSection('laporan-gudang')"> - Laporan Gudang</a></li>
-        </ul>
+          <style>
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+  }
+
+  a:hover {
+    color: #007bff;
+  }
+
+  .submenu {
+    display: none;
+    margin-left: 25px;
+    margin-top: 5px;
+  }
+
+  .arrow {
+    font-size: 14px;
+    transition: transform 0.2s ease;
+  }
+
+  .open .arrow {
+    transform: rotate(90deg);
+  }
+</style>
+
+<ul>
+  <li id="laporan-gudang-menu">
+    <a href="#" onclick="toggleSubmenu(event)">
+      📦 - Laporan Gudang <span class="arrow">▶</span>
+    </a>
+    <ul id="submenu-laporan-gudang" class="submenu">
+      <li>
         <a href="https://docs.google.com/spreadsheets/d/14phSwmbLXDSVpc1wBo9NZdz9yV1VIOutwBySSQNewJ8/edit" target="_blank">
           🧾 V.2 Log Aktivitas Operasional Surprice 2025
         </a>
@@ -210,6 +249,19 @@ input[type="number"]{width:80px;padding:6px;border-radius:6px;border:1px solid #
     </ul>
   </li>
 </ul>
+
+<script>
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const menuItem = document.getElementById("laporan-gudang-menu");
+    const submenu = document.getElementById("submenu-laporan-gudang");
+
+    const isOpen = submenu.style.display === "block";
+    submenu.style.display = isOpen ? "none" : "block";
+    menuItem.classList.toggle("open", !isOpen);
+  }
+</script>
+
       </li>
       <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a>
         <ul style="padding-left:20px;">
