@@ -196,10 +196,20 @@ input[type="number"]{width:80px;padding:6px;border-radius:6px;border:1px solid #
       <li><a href="#" onclick="showSection('inventory')" class="active">📦 Divisi Gudang</a>
         <ul style="padding-left:20px;">
           <li><a href="#" onclick="showSection('inventory')"> - Inventory Booth</a></li>
-          <li><a href="#" onclick="showSection('stok-masuk')"> - Stok Masuk</a></li>
-          <li><a href="#" onclick="showSection('stok-keluar')"> - Stok Keluar</a></li>
           <li><a href="#" onclick="showSection('laporan-gudang')"> - Laporan Gudang</a></li>
         </ul>
+        <a href="https://docs.google.com/spreadsheets/d/14phSwmbLXDSVpc1wBo9NZdz9yV1VIOutwBySSQNewJ8/edit" target="_blank">
+          🧾 V.2 Log Aktivitas Operasional Surprice 2025
+        </a>
+      </li>
+      <li>
+        <a href="https://docs.google.com/spreadsheets/d/1XET5ZuVH10Yt4dhVxioCe1jww5-cWfjC/edit?gid=2037484461#gid=2037484461" target="_blank">
+          📊 Laporan_Operasional_Surprice2025
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
       </li>
       <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a>
         <ul style="padding-left:20px;">
