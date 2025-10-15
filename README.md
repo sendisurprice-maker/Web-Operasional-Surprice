@@ -976,22 +976,17 @@
           <h3>🛒 Toko Kami Tersedia Di</h3>
           <div class="partner-logos">
             <div class="partner-logo">
-             <div class="partner-logo">
-  <!-- Logo Shopee -->
-  <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Shopee_logo.svg" 
+   <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Shopee_logo.png" 
        alt="Shopee Logo" 
        width="120" 
        style="display:block; margin:10px auto;">
 </div>
-
 <div class="partner-logo">
-  <!-- Logo Lazada -->
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lazada_Logo.png" 
        alt="Lazada Logo" 
        width="120" 
        style="display:block; margin:10px auto;">
 </div>
-
             <div class="partner-logo">
               <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
             </div>
