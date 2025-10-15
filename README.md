@@ -539,7 +539,7 @@
   <div id="loginPage" class="login-page">
     <div class="login-box">
       <h2>🔐 Login Sistem Inventory</h2>
-      <p>Username: admin | Password: admin1234</p>
+      <p>Username:admin | Password:admin1234</p>
       <div class="form-group">
         <label>Username:</label>
         <input id="username" type="text" placeholder="Masukkan username" autocomplete="username">
