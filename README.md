@@ -88,24 +88,7 @@
       transform: rotate(90deg);
     }
 
-    /* Tombol Logout */
-    .logout-btn {
-      background-color: #ef4444;
-      color: white;
-      border: none;
-      padding: 10px;
-      margin: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .logout-btn:hover {
-      background-color: #dc2626;
-    }
-
-    /* ==== MAIN AREA ==== */
+       /* ==== MAIN AREA ==== */
     .main-content {
       flex: 1;
       display: flex;
@@ -202,8 +185,7 @@
       </ul>
     </div>
 
-    <button class="logout-btn" onclick="logout()">🚪 Logout</button>
-  </nav>
+   </nav>
 
   <!-- ===== MAIN CONTENT ===== -->
   <div class="main-content">
@@ -260,9 +242,7 @@
          <p>Konten untuk bagian <b>${sectionId}</b> akan ditampilkan di sini.</p>`;
     }
 
-    function logout() {
-      alert('Anda telah logout dari sistem.');
-    }
+      }
   </script>
 </body>
 </html>
