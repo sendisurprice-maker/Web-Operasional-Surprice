@@ -977,22 +977,22 @@
           <h3>🛒 Toko Kami Tersedia Di</h3>
           <div class="partner-logos">
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" alt="Shopee">
+              <img src="https://share.google/images/WxDp7ukqQSUyMHJFA" alt="Shopee">
             </div>
             <div class="partner-logo">
-              <img src="https://www.citypng.com/photo/26643/lazada-logo-transparent-background" alt="Lazada">
+              <img src="https://share.google/images/UxSnQMouQ2MQNgZnY" alt="Lazada">
             </div>
             <div class="partner-logo">
               <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Tokopedia_logo.svg" alt="Tokopedia">
+              <img src="https://share.google/images/oM0v1dj32LY90scOx" alt="Tokopedia">
             </div>
             <div class="partner-logo">
-              <img src="https://logowik.com/blibli-com-logo-vector-svg-pdf-ai-eps-cdr-free-download-11561.html" alt="Blibli">
+              <img src="https://share.google/images/93EGMkBV1mvXrn9s8" alt="Blibli">
             </div>
             <div class="partner-logo">
-              <img src="https://seeklogo.com/vector-logo/386990/bukalapak" alt="Bukalapak">
+              <img src="https://share.google/images/tHLr42ioXPszEzLsf" alt="Bukalapak">
             </div>
           </div>
         </div>
@@ -1004,22 +1004,22 @@
           <h3>🚚 Partner Kurir Kami</h3>
           <div class="partner-logos">
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/New_Logo_JNT.png" alt="J&T Express">
+              <img src="https://share.google/images/Qe5pSOQGvgORoogww" alt="J&T Express">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/JNE_logo.svg" alt="JNE">
+              <img src="https://share.google/images/2P3k78DsVWaa7ff0i" alt="JNE">
             </div>
             <div class="partner-logo">
               <img src="https://upload.wikimedia.org/wikipedia/id/e/e7/SiCepat_Ekspres_logo.png" alt="SiCepat">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Grab_Logo.svg" alt="Grab">
+              <img src="https://share.google/images/3qrUFEBvNgvAHgPKu" alt="Grab">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Gojek_logo_2019.svg" alt="Gojek">
+              <img src="https://share.google/images/6dTHtnRaNeQXbnjFO" alt="Gojek">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Ninja_Xpress_logo.png" alt="Ninja Xpress">
+              <img src="https://share.google/images/L4iUBMyc23Y2YzhUp" alt="Ninja Xpress">
             </div>
             <div class="partner-logo">
               <img src="https://yt3.googleusercontent.com/ytc/AIdro_ltJ5JXdQPBBXvJFiuuJWPQb9Gp8wIoq0bKoHPf=s900-c-k-c0x00ffffff-no-rj" alt="ID Express">
