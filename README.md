@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sistem Inventory Booth - Dilwali</title>
+  <title>Sistem Inventory Surprice</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
@@ -686,15 +685,17 @@
           </li>
 
           <li><a href="#" onclick="showSection('customer-service')">👥 Divisi Customer Service</a></li>
-          <li><a href="#" onclick="showSection('divisi-marketing')">📈 Divisi Marketing & Sales Digital</a></li>
+            <a href="https://docs.google.com/spreadsheets/d/1T8coKtJPfxeLhOgo-CHHqJd5MOCs3xmCFIYkXB1ETi0/edit?gid=1946424206#gid=1946424206" target="_blank">
+                      📊 Komplain Chat2025
+                    </a>
+                 </ul>
+             <li><a href="#" onclick="showSection('divisi-marketing')">📈 Divisi Marketing & Sales Digital</a></li>
           <li><a href="#" onclick="showSection('divisi-admin')">⚙️ Divisi Admin & Purchasing</a></li>
           <li><a href="#" onclick="showSection('divisi-transporter')">🚚 Divisi Transporter</a></li>
           <li><a href="#" onclick="showSection('divisi-kurir')">📬 Divisi Kurir</a></li>
           <li><a href="#" onclick="showSection('divisi-finance')">💰 Divisi Finance</a></li>
           <li><a href="#" onclick="showSection('divisi-hrd')">👔 Divisi HRD</a></li>
-        </ul>
-      </div>
-
+        </div>
       <div class="sidebar-footer">
         <button class="logout-btn" onclick="logout()">🚪 Logout</button>
       </div>
@@ -704,12 +705,9 @@
     <div class="main-content">
       <!-- Top Bar -->
       <div class="top-bar">
-        <h1 id="pageTitle">Dashboard Utama</h1>
-        <div class="datetime-display">
-          <div class="date" id="currentDate">Senin, 15 Oktober 2025</div>
-          <div class="time" id="currentTime">14:30:45</div>
-        </div>
-      </div>
+  📅 <span id="tanggal"></span> | ⏰ <span id="waktu"></span>
+</div>
+
 
       <!-- Content Area -->
       <div class="content-area">
@@ -755,7 +753,7 @@
             <h3>⚙️ Konfigurasi Google Sheets</h3>
             <div class="config-input">
               <label>URL Google Apps Script:</label>
-              <input id="apiUrl" type="text" placeholder="Masukkan URL Web App (/exec) di sini" value="https://script.google.com/macros/s/AKfycbzkCElaoI9fxJaIptSjgddlbs73dPtq6Mc8TMta86dts0rpf8noAYW1Cy82fn3nklcxag/exec">
+              <input id="apiUrl" type="text" placeholder="Masukkan URL Web App (/exec) di sini" value="">
             </div>
             <div style="display:flex;gap:10px;flex-wrap:wrap">
               <button class="btn-primary" onclick="saveConfig()">💾 Simpan Konfigurasi</button>
@@ -978,22 +976,22 @@
           <h3>🛒 Toko Kami Tersedia Di</h3>
           <div class="partner-logos">
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" alt="Shopee">
+              <img src="https://commons.wikimedia.org/wiki/File:Shopee_logo.svg" alt="Shopee">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Lazada_Logo.png" alt="Lazada">
+              <img src="https://share.google/images/UxSnQMouQ2MQNgZnY" alt="Lazada">
             </div>
             <div class="partner-logo">
               <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Tokopedia_logo.svg" alt="Tokopedia">
+              <img src="https://share.google/images/oM0v1dj32LY90scOx" alt="Tokopedia">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Blibli_2021_logo.svg" alt="Blibli">
+              <img src="https://share.google/images/93EGMkBV1mvXrn9s8" alt="Blibli">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Bukalapak_logo.svg" alt="Bukalapak">
+              <img src="https://share.google/images/tHLr42ioXPszEzLsf" alt="Bukalapak">
             </div>
           </div>
         </div>
@@ -1005,22 +1003,22 @@
           <h3>🚚 Partner Kurir Kami</h3>
           <div class="partner-logos">
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/New_Logo_JNT.png" alt="J&T Express">
+              <img src="https://share.google/images/Qe5pSOQGvgORoogww" alt="J&T Express">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/JNE_logo.svg" alt="JNE">
+              <img src="https://share.google/images/2P3k78DsVWaa7ff0i" alt="JNE">
             </div>
             <div class="partner-logo">
               <img src="https://upload.wikimedia.org/wikipedia/id/e/e7/SiCepat_Ekspres_logo.png" alt="SiCepat">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Grab_Logo.svg" alt="Grab">
+              <img src="https://share.google/images/3qrUFEBvNgvAHgPKu" alt="Grab">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Gojek_logo_2019.svg" alt="Gojek">
+              <img src="https://share.google/images/6dTHtnRaNeQXbnjFO" alt="Gojek">
             </div>
             <div class="partner-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Ninja_Xpress_logo.png" alt="Ninja Xpress">
+              <img src="https://share.google/images/L4iUBMyc23Y2YzhUp" alt="Ninja Xpress">
             </div>
             <div class="partner-logo">
               <img src="https://yt3.googleusercontent.com/ytc/AIdro_ltJ5JXdQPBBXvJFiuuJWPQb9Gp8wIoq0bKoHPf=s900-c-k-c0x00ffffff-no-rj" alt="ID Express">
@@ -1275,6 +1273,25 @@
       }
     });
   </script>
-</body>
-</html>
+  <script>
+  function updateDateTime() {
+    const now = new Date();
+    const tanggal = now.toLocaleDateString('id-ID', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+    const waktu = now.toLocaleTimeString('id-ID');
+    document.getElementById('tanggal').textContent = tanggal;
+    document.getElementById('waktu').textContent = waktu;
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+</script>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").then(() => {
+      console.log("Service Worker terdaftar");
+    });
+  }
+</script>
+
         
