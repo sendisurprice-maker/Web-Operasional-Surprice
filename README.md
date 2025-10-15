@@ -753,7 +753,7 @@
             <h3>⚙️ Konfigurasi Google Sheets</h3>
             <div class="config-input">
               <label>URL Google Apps Script:</label>
-              <input id="apiUrl" type="text" placeholder="Masukkan URL Web App (/exec) di sini" value="https://script.google.com/macros/s/AKfycbzkCElaoI9fxJaIptSjgddlbs73dPtq6Mc8TMta86dts0rpf8noAYW1Cy82fn3nklcxag/exec">
+              <input id="apiUrl" type="text" placeholder="Masukkan URL Web App (/exec) di sini" value="">
             </div>
             <div style="display:flex;gap:10px;flex-wrap:wrap">
               <button class="btn-primary" onclick="saveConfig()">💾 Simpan Konfigurasi</button>
